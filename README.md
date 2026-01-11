@@ -1,42 +1,12 @@
+# Estructura de Datos
+## Estudiante: Bryan Barros
+## Fecha: 10/01/2026
+
 # Estructuras No Lineales – Ejercicios Árboles
 
-Este proyecto contiene la solución a cuatro ejercicios prácticos sobre estructuras de datos tipo árbol binario, como parte del aprendizaje de estructuras no lineales en Java. Cada ejercicio se encuentra organizado en su propia carpeta, siguiendo la convención de paquetes y buenas prácticas.
+Este proyecto presenta la resolución de cuatro ejercicios prácticos enfocados en estructuras de datos de tipo árbol binario, desarrollados como parte del estudio de las estructuras no lineales en Java. Cada ejercicio está organizado en su respectiva carpeta, respetando la convención de paquetes y aplicando buenas prácticas de programación para facilitar su comprensión y mantenimiento.
 
 ---
-
-## Identificación del Estudiante (Obligatorio)
-
-Antes de comenzar a programar o ejecutar el proyecto, **debes completar tu nombre y correo institucional en el archivo `student.env`** que se encuentra en la raíz del proyecto. Este archivo es necesario para validar tu identidad como autor del trabajo.
-
-### ¿Por qué es obligatorio?
-
-Este proyecto utiliza una verificación automática que valida que has ingresado tu información personal. Si no lo haces:
-
-- Al ejecutar el proyecto (`App.java`) verás este mensaje de error:
-```
-❌ Debes completar STUDENT_NAME y STUDENT_EMAIL en student.env
-```
-- No podrás enviar tu código (`push`) al repositorio si tienes activado el sistema de validación local.
-- Las pruebas automáticas en GitHub Actions también fallarán si no detectan tu nombre y correo.
-
-### ¿Qué debo hacer?
-
-1. Abre el archivo `student.env` que ya está creado en el proyecto.
-2. Rellena tus datos:
-
-```
-STUDENT_NAME=Tu Nombre Completo
-STUDENT_EMAIL=tu.correo@institucion.edu.ec
-```
-
-
-3. **No borres estas líneas ni cambies los nombres de las variables.**
-4. Guarda los cambios y vuelve a ejecutar el programa o hacer push.
-
-> 💡 Este mecanismo asegura la autoría del código y que cada estudiante reciba su evaluación automática de forma personalizada.
-
----
-
 
 
 
@@ -60,105 +30,58 @@ src/
 ### Ejercicio 01: Insertar en un Árbol Binario de Búsqueda (BST)
 
 Carpeta: `Ejercicio_01_insert`
-Implementa un algoritmo para insertar nodos en un Árbol Binario de Búsqueda.
+Permite insertar valores enteros en un Árbol Binario de Búsqueda (BST), respetando el orden y las reglas propias de esta estructura.
 
- **Input de ejemplo:** `[5, 3, 7, 2, 4, 6, 8]`
- **Output esperado:**
+La solución utiliza un método recursivo que recorre el árbol desde la raíz hasta encontrar la posición adecuada para el nuevo valor.  
+Si el nodo actual es `null`, se crea un nuevo nodo.  
+Las comparaciones determinan si el valor se inserta en el subárbol izquierdo o derecho, manteniendo las propiedades del BST.
 
-```
-    5
-  3   7
- 2 4 6 8
-```
-
+#### Captura:
+![alt text](assets/Ejercicio1.png)
 ---
+
 
 ### Ejercicio 02: Invertir un Árbol Binario
 
 📂 Carpeta: `Ejercicio_02_invert`
-Dada la raíz de un árbol binario, el algoritmo devuelve su versión invertida (espejo).
 
- **Input de ejemplo:**
+Invierte un árbol binario intercambiando los subárboles izquierdo y derecho de cada nodo.
+El método recorre el árbol de forma recursiva desde la raíz.  
+En cada nodo, primero se procesan los subárboles y luego se intercambian, logrando la inversión completa del árbol.  
+La recursión finaliza cuando se alcanza un nodo `null`.
 
-```
-    4
-  2   7
-1  3 6  9
-```
-
-**Output esperado:**
-
-```
-    4
-  7   2
-9  6 3  1
-```
+#### Captura:
+![alt text](assets/Ejercicio2.png)
 
 ---
 
 ### Ejercicio 03: Listar Niveles en Listas Enlazadas
 
 📂 Carpeta: `Ejercicio_03_listLeves`
-Devuelve una lista enlazada con los nodos por nivel. Si hay N niveles, se obtienen N listas.
+Obtiene y organiza los nodos de un árbol binario por niveles, agrupando los nodos que se encuentran a la misma profundidad.
 
- **Input de ejemplo:**
+La solución utiliza un recorrido por niveles (BFS) apoyado en una cola (`Queue`).  
+El proceso inicia agregando la raíz a la cola y, mientras esta no esté vacía, se procesa cada nivel por separado.  
+En cada iteración se determina cuántos nodos pertenecen al nivel actual, se almacenan en una lista y se agregan sus hijos a la cola para el siguiente nivel.  
+Finalmente, cada nivel se guarda en una lista general que representa la estructura del árbol por niveles.
 
-```
-    4
-  2   7
-1  3 6  9
-```
-
-**Output esperado:**
-
-```
-4  
-2 → 7  
-1 → 3 → 6 → 9
-```
+#### Captura:
+![alt text](assets/Ejercicio3.png)
 
 ---
 
 ### Ejercicio 04: Calcular la Profundidad Máxima
 
 Carpeta: `Ejercicio_04_depth`
-Calcula la profundidad máxima de un árbol binario (la longitud del camino más largo desde la raíz hasta una hoja).
+Calcula la profundidad máxima de un árbol binario, es decir, la longitud del camino más largo desde la raíz hasta una hoja.
 
-**Input de ejemplo:**
+La solución utiliza un enfoque recursivo que recorre el árbol desde la raíz.  
+Si el nodo actual es `null`, se retorna cero, indicando que no hay profundidad.  
+En cada llamada recursiva se calcula la profundidad del subárbol izquierdo y derecho, y se selecciona el valor mayor, sumando uno para contar el nivel del nodo actual.  
+De esta forma, se obtiene la profundidad máxima total del árbol.
 
-```
-    4
-  2   7
-1  3  
-8
-```
-
-**Output esperado:** `4`
-
----
-
-## Indicaciones Generales
-
-* Lee cuidadosamente el enunciado de cada ejercicio.
-* Cada carpeta debe contener:
-
-  * Código fuente Java.
-  * Casos de prueba.
-  * Comentarios claros.
-* Realiza commit y push con el mensaje:
-
-  ```
-  Estructuras No Lineales – Ejercicios Árboles
-  ```
-* En el AVAC, sube la **URL del repositorio** con el código.
-
----
-
-## No se calificará si:
-
-* No hay commit con los ejercicios.
-* No se incluye este README explicativo.
-* Las clases o métodos no siguen los nombres requeridos.
+#### Captura:
+![alt text](assets/Ejercicio4.png)
 
 ---
 
@@ -184,4 +107,4 @@ Para contribuir a este proyecto, por favor crea un fork y envía una solicitud d
 ## Autores
 
 - [PABLO TORRES] - Desarrollo inicial
-
+- [BRYAN BARROS] - Desarrollo final
