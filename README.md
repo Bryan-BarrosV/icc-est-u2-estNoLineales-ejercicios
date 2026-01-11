@@ -100,9 +100,6 @@ De esta forma, se obtiene la profundidad máxima total del árbol.
 
 
 
-## Contribuir
-
-Para contribuir a este proyecto, por favor crea un fork y envía una solicitud de extracción, o simplemente abre un issue con tus comentarios y sugerencias.
 
 ## Autores
 
